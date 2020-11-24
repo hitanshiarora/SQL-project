@@ -25,12 +25,10 @@ DROP TABLE IF EXISTS `department`;
 CREATE TABLE `department` (
   `code` char(5) NOT NULL,
   `name` varchar(30) DEFAULT NULL,
-  `managerid` decimal(9,0) DEFAULT NULL,
+  `managerid` int DEFAULT NULL,
   `subdeptof` char(5) DEFAULT NULL,
   PRIMARY KEY (`code`),
   KEY `managerid` (`managerid`),
-  CONSTRAINT `department_ibfk_1` FOREIGN KEY (`managerid`) REFERENCES `employee` (`employeeid`),
-  CONSTRAINT `department_ibfk_2` FOREIGN KEY (`managerid`) REFERENCES `employee` (`employeeid`),
   CONSTRAINT `department_ibfk_3` FOREIGN KEY (`managerid`) REFERENCES `employee` (`employeeid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -75,29 +73,7 @@ INSERT INTO `employee` VALUES (1,'Rahul','ARora','23',200.00),(2,'PI','RSquared'
 UNLOCK TABLES;
 
 --
--- Table structure for table `jewellery`
---
-
-DROP TABLE IF EXISTS `jewellery`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `jewellery` (
-  `series` int NOT NULL,
-  `title` varchar(50) NOT NULL,
-  `price` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `jewellery`
---
-
-LOCK TABLES `jewellery` WRITE;
-/*!40000 ALTER TABLE `jewellery` DISABLE KEYS */;
-INSERT INTO `jewellery` VALUES (1,' Bangles',249);
-/*!40000 ALTER TABLE `jewellery` ENABLE KEYS */;
-UNLOCK TABLES;
-
+-- 
 --
 -- Table structure for table `project`
 --
